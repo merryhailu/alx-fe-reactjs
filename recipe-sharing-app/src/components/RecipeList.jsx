@@ -1,5 +1,6 @@
 import  useRecipeStore  from "./recipeStore";
 import RecipeCard from './RecipeCard';
+import { Link } from 'react-router-dom';
 
   const RecipeList = () => {
     const {recipes, filteredRecipes }= useRecipeStore();
@@ -15,7 +16,9 @@ import RecipeCard from './RecipeCard';
 
        {filteredRecipes.length > 0 ? (
         filteredRecipes.map(recipe => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
+          <Link key={recipe.id} to={`/recipes/${recipe.id}`}>
+          <RecipeCard  recipe={recipe} />
+          </Link>
         ))
       ) : (
         <p>No recipes found.</p> )}
