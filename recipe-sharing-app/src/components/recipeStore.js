@@ -1,8 +1,12 @@
-import { create } from 'zustand'
+import create from 'zustand';
+import { produce } from 'immer';
 
-
-const useRecipeStore = create(set => ({
+const initialState = {
   recipes: [],
+};
+
+export const useRecipeStore = create(set => ({
+  recipes: initialState.recipes,
   addRecipe: (newRecipe) => set(produce(draft => {
     draft.recipes.push(newRecipe);
   })),
@@ -19,5 +23,3 @@ const useRecipeStore = create(set => ({
     }
   })),
 }));
-
-export default useRecipeStore;
