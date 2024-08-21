@@ -1,7 +1,8 @@
 import  useRecipeStore  from "./recipeStore";
+import RecipeCard from './RecipeCard';
 
   const RecipeList = () => {
-    const recipes = useRecipeStore(state => state.recipes);
+    const {recipes, filteredRecipes }= useRecipeStore();
 
     return (
       <div>
@@ -11,6 +12,13 @@ import  useRecipeStore  from "./recipeStore";
             <p>{recipe.description}</p>
           </div>
         ))}
+
+       {filteredRecipes.length > 0 ? (
+        filteredRecipes.map(recipe => (
+          <RecipeCard key={recipe.id} recipe={recipe} />
+        ))
+      ) : (
+        <p>No recipes found.</p> )}
       </div>
     );
   };

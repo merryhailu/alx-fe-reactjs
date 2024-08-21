@@ -6,11 +6,13 @@ import RecipeDetails from './components/RecipeDetails'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import EditRecipeForm from './components/EditRecipeForm'
 import DeleteRecipeButton from './components/DeleteRecipeButton'
+import SearchBar from './components/SearchBar'
 
 function App() {
   return (
     <>
     <p>Hello there</p>
+    <SearchBar />
         <h1>Recipe Sharing App</h1>
             <AddRecipeForm />
             <RecipeList />
