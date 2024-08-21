@@ -5,7 +5,7 @@ const initialState = {
   recipes: [],
 };
 
-export const useRecipeStore = create(set => ({
+ const useRecipeStore = create(set => ({
   recipes: initialState.recipes,
   addRecipe: (newRecipe) => set(produce(draft => {
     draft.recipes.push(newRecipe);
@@ -23,3 +23,5 @@ export const useRecipeStore = create(set => ({
     }
   })),
 }));
+
+export default useRecipeStore;
