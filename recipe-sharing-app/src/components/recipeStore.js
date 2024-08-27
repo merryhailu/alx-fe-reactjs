@@ -5,6 +5,7 @@ import { produce } from 'immer';
  const useRecipeStore = create(set => ({
   recipes: [],
   searchTerm: '',
+  setRecipes: (newRecipes) => set({ recipes: newRecipes }),
   setSearchTerm: (term) => set({ searchTerm: term }),
   filteredRecipes: [],
   filterRecipes: () => set(state => ({
