@@ -8,9 +8,6 @@ function App() {
   return (
     <>
       <HomePage />
-      <p className="read-the-docs bg-black">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
