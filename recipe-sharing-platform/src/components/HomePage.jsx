@@ -21,9 +21,9 @@ function HomePage() {
 
 
   return (
-    <div className='mx-auto py-8 bg-cyan-300'>
+    <div className='mx-auto py-8 shadow-md bg-slate-200'>
         <h1 className='text-3xl text-center font-bold'>Welcome to My Recipe App</h1>
-        <div className='bg-red-300 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4' >
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 hover:scale-110 rounded-lg shadow-lg' >
             {recipes.map((recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
         ))} 
