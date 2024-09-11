@@ -12,8 +12,8 @@
         "Garlic",
         "Parmesan cheese"
       ],
-      "instructions": [
-        "Cook spaghetti al dente.",
+      "steps": [
+        "Cook spaghetti aldente.",
         "Brown ground beef and add onion and garlic.",
         "Combine meat mixture with tomato sauce and simmer.",
         "Toss spaghetti with sauce and top with Parmesan cheese."
@@ -22,7 +22,7 @@
     },
     {
       "id": 2,
-      "title": "Chicken Tikka Masala",
+      "title": "Chicken TikkaMasala",
       "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
       "image": "https://via.placeholder.com/150",
       "ingredients": [
@@ -33,7 +33,7 @@
         "Cream",
         "Naan bread"
       ],
-      "instructions": [
+      "steps": [
         "Marinate chicken in yogurt and spices.",
         "Cook chicken in a tandoor or oven.",
         "Make a creamy tomato sauce with curry powder.",

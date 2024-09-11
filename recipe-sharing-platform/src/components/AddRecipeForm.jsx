@@ -6,13 +6,13 @@ const AddRecipeForm = () => {
     const [formData, setFormData] = useState({
         title: '',
         ingredients: '',
-        preparationSteps: '',
+        steps: '',
     });
  
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(!formData.title || !formData.ingredients || !formData.preparationSteps ){
+        if(!formData.title || !formData.ingredients || !formData.steps ){
             console.error('please fill in all required field.');
             return;
         }
@@ -42,7 +42,7 @@ const AddRecipeForm = () => {
             <div className="mb-4">
                 <label htmlFor="instructions" className="block text-gray-700 font-bold mb-2">Instructions</label>
                 <textarea name="instructions" id="instructions" value={formData.instructions} 
-                onChange={(e) => setFormData({...formData, preparationSteps: e.target.value})} required className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                onChange={(e) => setFormData({...formData, steps: e.target.value})} required className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 />
             </div>
 
