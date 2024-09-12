@@ -27,7 +27,7 @@ const AddRecipeForm = () => {
   return (
     <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-md">
       <div className="mb-4">
-        <label className="block text-gray-700">Recipe Title</label>
+        <label className="block text-gray-700 font-bold">Recipe Title</label>
         <input
           type="text"
           value={title}
@@ -37,7 +37,7 @@ const AddRecipeForm = () => {
         {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Ingredients</label>
+        <label className="block text-gray-700 font-bold">Ingredients</label>
         <textarea
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
@@ -46,7 +46,7 @@ const AddRecipeForm = () => {
         {errors.ingredients && <p className="text-red-500 text-sm">{errors.ingredients}</p>}
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Preparation Steps</label>
+        <label className="block text-gray-700 font-bold">Preparation Steps</label>
         <textarea
           value={steps}
           onChange={(e) => setSteps(e.target.value)}
