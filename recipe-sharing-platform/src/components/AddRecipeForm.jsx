@@ -1,55 +1,63 @@
 import React, { useState } from 'react';
-import { Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 
 const AddRecipeForm = () => {
+  const [title, setTitle] = useState('');
+  const [ingredients, setIngredients] = useState('');
+  const [steps, setSteps] = useState('');
   const [errors, setErrors] = useState({});
 
-  const initialValues = {
-    title: '',
-    ingredients: '',
-    steps: '',
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length === 0) {
+      console.log({ title, ingredients, steps });
+    } else {
+      setErrors(validationErrors);
+    }
   };
 
-  const validationSchema = Yup.object({
-    title: Yup.string().required('Title is required'),
-    ingredients: Yup.string().required('Ingredients are required'),
-    steps: Yup.string().required('Steps are required'),
-  });
-
-  const handleSubmit = (values, { setErrors }) => {
-    const newErrors = {};
-    
-    if (!values.title) {
-      newErrors.title = 'Title is required';
-    }
-    if (!values.ingredients) {
-        newErrors.ingredients = 'Ingredient is required';
-      }
-      if (!values.steps) {
-        newErrors.steps = 'Step is required';
-      }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      console.log(formData);
-    }
+  const validateForm = () => {
+    const errors = {};
+    if (!title) errors.title = 'Title is required';
+    if (!ingredients) errors.ingredients = 'Ingredients are required';
+    if (!steps) errors.steps = 'Preparation steps are required';
+    return errors;
   };
 
   return (
-    <Form initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-      <Field name="title" type="text" placeholder="Title" />
-      <ErrorMessage name="title" component="div" className="text-red-500" />
-     
-      <Field name="ingredients" type="text" placeholder="Ingredients" />
-      <ErrorMessage name="ingredients" component="div" className="text-red-500" />
-
-      <Field name="steps" type="text" placeholder="Steps" />
-      <ErrorMessage name="steps" component="div" className="text-red-500" />
-
-      <button type="submit">Submit</button>
-    </Form>
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-md">
+      <div className="mb-4">
+        <label className="block text-gray-700">Recipe Title</label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+        />
+        {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700">Ingredients</label>
+        <textarea
+          value={ingredients}
+          onChange={(e) => setIngredients(e.target.value)}
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+        ></textarea>
+        {errors.ingredients && <p className="text-red-500 text-sm">{errors.ingredients}</p>}
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700">Preparation Steps</label>
+        <textarea
+          value={steps}
+          onChange={(e) => setSteps(e.target.value)}
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+        ></textarea>
+        {errors.steps && <p className="text-red-500 text-sm">{errors.steps}</p>}
+      </div>
+      <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">
+        Submit
+      </button>
+    </form>
   );
 };
 
