@@ -9,12 +9,16 @@ const Search = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [noResults, setNoResults] = useState(false);
 
-  const handleSearch = async () => {
+  const fetchUserData = async () => {
     setIsLoading(true);
     const results = await searchUsers(username, location, minRepos);
     setUsers(results);
     setIsLoading(false);
     setNoResults(results.length === 0);
+  };
+
+  const handleSearch = () => {
+    fetchUserData();
   };
 
   return (
