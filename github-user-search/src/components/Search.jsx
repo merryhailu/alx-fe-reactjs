@@ -6,10 +6,15 @@ const Search = () => {
   const [location, setLocation] = useState('');
   const [minRepos, setMinRepos] = useState('');
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [noResults, setNoResults] = useState(false);
 
   const handleSearch = async () => {
+    setIsLoading(true);
     const results = await searchUsers(username, location, minRepos);
     setUsers(results);
+    setIsLoading(false);
+    setNoResults(results.length === 0);
   };
 
   return (
@@ -42,6 +47,8 @@ const Search = () => {
         />
       </div>
       <button onClick={handleSearch}>Search</button>
+      {isLoading && <p>Loading...</p>}
+      {noResults && !isLoading && <p>No users found.</p>}
       <div>
         {users.map((user) => (
           <div key={user.id}>
