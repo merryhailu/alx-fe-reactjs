@@ -1,15 +1,19 @@
 
-import './App.css'
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import UserSearch from './components/UserSearch';
 
-function App() {
- 
+const App = () => {
+    return (
+        <Router>
+            <div>
+                <h1>GitHub User Search</h1>
+                <Switch>
+                    <Route path="/" component={UserSearch} />
+                </Switch>
+            </div>
+        </Router>
+    );
+};
 
-  return (
-    <>
-      
-    </>
-  )
-}
+export default App;
 
-export default App
