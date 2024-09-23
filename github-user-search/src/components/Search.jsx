@@ -61,10 +61,12 @@ const Search = ({ onSearch }) => {
       </div>
       <button onClick={handleSearch} type='submit'>Search</button>
       {isLoading && <p>Loading...</p>}
-      {noResults && !isLoading && <p>No users found.</p>}
+      {noResults && !isLoading && <p>Looks like we cant find the user</p>}
       <div>
         {users.map((user) => (
           <div key={user.id}>
+           
+            <img src={user.avatar_url} alt={user.login} />
             <h2>{user.login}</h2>
             <p>Location: {user.location || 'N/A'}</p>
             <p>Repositories: {user.public_repos}</p>
